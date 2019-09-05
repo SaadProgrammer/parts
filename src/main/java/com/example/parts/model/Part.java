@@ -10,7 +10,7 @@ import lombok.Getter;
 
 public class Part {
 
-    private String id;
+    private Integer id;
     private String nazwaCzesci;
     private String typ;
     private String stan;

@@ -27,7 +27,7 @@ public class PartsController {
     }
 
     @RequestMapping(method = GET, path = "/getpart", produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Part> getPart(@RequestParam(value = "id", required = false ) String id, @RequestParam(value = "nazwaCzesci", required = false) String nazwaCzesci, @RequestParam(value = "typ", required = false) String typ, @RequestParam(value = "stan", required = false) String stan) {
+    public List<Part> getPart(@RequestParam(value = "id", required = false ) Integer id, @RequestParam(value = "nazwaCzesci", required = false) String nazwaCzesci, @RequestParam(value = "typ", required = false) String typ, @RequestParam(value = "stan", required = false) String stan) {
         List<Part> lista = partsService.parts.stream().filter(
                 part -> part.getId().equals(id)
                         || part.getNazwaCzesci().equals(nazwaCzesci)
@@ -42,12 +42,12 @@ public class PartsController {
     }
 
     @RequestMapping(method = PUT, path = "/putpart", produces = MediaType.APPLICATION_JSON_VALUE)
-    public void updatePart(@RequestParam(value = "id") String id, @RequestParam(value = "nazwaCzesci", required = false) String nazwaCzesci, @RequestParam(value = "typ", required = false) String typ, @RequestParam(value = "stan", required = false) String stan, @RequestParam(value = "opis", required = false) String opis) {
+    public void updatePart(@RequestParam(value = "id") Integer id, @RequestParam(value = "nazwaCzesci", required = false) String nazwaCzesci, @RequestParam(value = "typ", required = false) String typ, @RequestParam(value = "stan", required = false) String stan, @RequestParam(value = "opis", required = false) String opis) {
         partsService.update(id, nazwaCzesci, typ, stan, opis);
     }
 
     @RequestMapping(method = DELETE, path = "/deletepart", produces = MediaType.APPLICATION_JSON_VALUE)
-    public void deletePart(@RequestParam(value = "id") String id) {
+    public void deletePart(@RequestParam(value = "id") Integer id) {
         Part deleteThisPart = partsService.parts.stream().filter(part -> part.getId().equals(id)).findFirst().orElse(null);
         partsService.delete(deleteThisPart);
     }

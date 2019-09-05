@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class PartDtoMapperPart {
 
     public Part partDtoMapperPart(PartDto partDto) {
-        String id = partDto.getIdDto();
+        Integer id = partDto.getIdDto();
         String nazwaCzesci = partDto.getNazwaCzesciDto();
         String typ = partDto.getTypDto();
         String stan = partDto.getStanDto();

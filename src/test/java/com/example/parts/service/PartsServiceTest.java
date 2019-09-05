@@ -12,7 +12,7 @@ public class PartsServiceTest {
     public void funkcjaSprwdzaSave() {
         //given
         PartsService ps = new PartsService();
-        PartDto partDto = new PartDto("1", "koło", "sportowe", "powyginane", "do wymiany");
+        PartDto partDto = new PartDto(1, "koło", "sportowe", "powyginane", "do wymiany");
         //when
         ps.save(partDto);
         //then
@@ -25,10 +25,10 @@ public class PartsServiceTest {
         //given
         PartDtoMapperPart mapper = new PartDtoMapperPart();
         PartsService ps = new PartsService();
-        PartDto partDto = new PartDto("1", "koło", "sportowe", "powyginane", "trzeba wiemienić");
+        PartDto partDto = new PartDto(1, "koło", "sportowe", "powyginane", "trzeba wiemienić");
         ps.save(partDto);
         //when
-        ps.update("1", "", "miejskie", "nowe", "ok");
+        ps.update(1, "", "miejskie", "nowe", "ok");
         //then
         Assert.assertNotNull(ps.parts);
         Assert.assertTrue(ps.parts.size()>=1);
@@ -39,7 +39,7 @@ public class PartsServiceTest {
         //given
         PartDtoMapperPart mapper = new PartDtoMapperPart();
         PartsService ps = new PartsService();
-        PartDto partDto = new PartDto("1", "koło", "sportowe", "powyginane", "trzeba wiemienić");
+        PartDto partDto = new PartDto(1, "koło", "sportowe", "powyginane", "trzeba wiemienić");
         ps.save(partDto);
         Part deleteThisPart = ps.parts.stream().filter(part->part.getId().equals(partDto.getIdDto())).findFirst().orElse(null);
         //when

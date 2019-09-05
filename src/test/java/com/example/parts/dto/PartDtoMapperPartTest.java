@@ -9,7 +9,7 @@ public class PartDtoMapperPartTest {
     public void funkcjaSprwdzaPartsDtoMapperPart(){
         //given
         PartDtoMapperPart pdmp = new PartDtoMapperPart();
-        PartDto partDto = new PartDto("1","koło","sportowe","powyginane","trzeba wiemienić");
+        PartDto partDto = new PartDto(1,"koło","sportowe","powyginane","trzeba wiemienić");
         //when
         pdmp.partDtoMapperPart(partDto);
         //then

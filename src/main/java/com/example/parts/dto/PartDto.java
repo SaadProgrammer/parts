@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 
 public class PartDto {
 
-    private String idDto;
+    private Integer idDto;
     private String nazwaCzesciDto;
     private String typDto;
     private String stanDto;
